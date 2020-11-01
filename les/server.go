@@ -87,7 +87,7 @@ func NewLesServer(node *node.Node, e *eth.Ethereum, config *eth.Config) (*LesSer
 		serverset:    newServerSet(),
 		lesTopics:    lesTopics,
 		fcManager:    flowcontrol.NewClientManager(nil, &mclock.System{}),
-		servingQueue: newServingQueue(int64(time.Millisecond*10), float64(config.LightServ)/100),
+		servingQueue: newServingQueue(int64(time.Millisecond*2), float64(config.LightServ)/100),
 		threadsBusy:  config.LightServ/100 + 1,
 		threadsIdle:  threads,
 		p2pSrv:       node.Server(),
